@@ -63,6 +63,12 @@ tr,th,td{
 }
 
 /* mediaquery */
+/* @media only screen and (mix-width: 320px){ 
+    .carousel-inner{
+        height: 5vh !important;
+        overflow: hidden;
+    }
+} */
 
 @media only screen and (max-width: 385px ) {
     #form {
@@ -79,8 +85,8 @@ tr,th,td{
         margin-left: 10rem;
     }
     .carousel-inner{
-        height: 10vh;
-        /* overflow: hidden; */
+        height: 10vh !important;
+        overflow: hidden;
     }
 }
 
@@ -96,7 +102,7 @@ tr,th,td{
         width: 15%;
     }
     .carousel-inner{
-        height: 70vh;
+        height: 30vh !important;
         overflow: hidden;
     }
 } 
@@ -111,7 +117,7 @@ tr,th,td{
         width: 50%;
     }
     .carousel-inner{
-        height: 70vh;
+        height: 30vh !important; 
         overflow: hidden;
     }
 }
