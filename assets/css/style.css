@@ -10,7 +10,7 @@
     width: 10rem;
 }
 .carousel-inner {
-    height: 61.664953751284685vh;
+    height: 70vh;
     overflow: hidden;
 }
 .image {
@@ -79,7 +79,8 @@ tr,th,td{
         margin-left: 10rem;
     }
     .carousel-inner{
-        max-height: 250px;
+        height: 10vh;
+        /* overflow: hidden; */
     }
 }
 
@@ -95,7 +96,8 @@ tr,th,td{
         width: 15%;
     }
     .carousel-inner{
-        max-height: 450px;
+        height: 70vh;
+        overflow: hidden;
     }
 } 
 
@@ -109,7 +111,8 @@ tr,th,td{
         width: 50%;
     }
     .carousel-inner{
-        max-height: 650px;
+        height: 70vh;
+        overflow: hidden;
     }
 }
 
