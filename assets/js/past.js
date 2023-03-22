@@ -1,4 +1,47 @@
-let urlApi = "https://mindhub-xj03.onrender.com/api/amazing ";
+const { createApp } = Vue
+let urlApi = "https://mindhub-xj03.onrender.com/api/amazing";
+
+
+    createApp( {
+            data() {
+                return {
+                    events: [],
+                    checked: [],
+                    valueSearch: '', // input en html
+                    eventsFilter: [],
+                    checkedFilter: []   
+
+                    //message: 'Hello Vue!'
+
+                }
+            },
+            created() {
+                fetch(urlApi)
+                .then(response => response.json())
+                .then(data => {
+                    this.events = data.events
+                    this.eventsFilter = data.events
+                    //console.log(this.events)
+                    this.checkedFilter = [...new Set(this.events.map(category => category.category)) ]
+                }).catch(error => console.log(error))
+            },
+            methods: {
+                filter() {
+                    this.eventsFilter = this.events.filter( event => {
+                        return (this.checked.includes(event.category) || this.checked.length ===0) &&
+                        event.name.toLowerCase().includes(this.valueSearch.toLowerCase())
+                    })
+                    //console.log('funciona');
+                }
+            }
+        
+    }).mount('#app')
+
+
+
+
+
+/* let urlApi = "https://mindhub-xj03.onrender.com/api/amazing ";
 
 async function getData() {
     try {
@@ -29,10 +72,10 @@ async function getData() {
         console.log(error)
     }
 }
-getData();
+getData(); */
 
 /* ---------- Mostrar tarjetas dinámicas ----------*/
-function showCards(array, idcontainer) {
+/* function showCards(array, idcontainer) {
     let container = document.getElementById(idcontainer);
     let fragment = document.createDocumentFragment();
     //console.log(array);
@@ -64,11 +107,11 @@ function showCards(array, idcontainer) {
         }
         container.appendChild(fragment);
     }
-}
+} */
 //showCards(data.events, 'containerHome');
 
 /* ---------- Checks Category dinamic ----------*/
-function createChecks(array) {
+/* function createChecks(array) {
     let containerCheckHome = document.getElementById('containerCheckHome');
     let fragmentCheck = document.createDocumentFragment();
     let checkCategory = [...(new Set(array.map(data => data.category)))];
@@ -88,11 +131,11 @@ function createChecks(array) {
         fragmentCheck.appendChild(form);
     })
     containerCheckHome.appendChild(fragmentCheck);
-}
+} */
 //createChecks(data.events);
 
 /* ---------- Filter cruzados ----------*/
-let selectChecked = [];
+/* let selectChecked = [];
 let inputText = '';
 
 function filterArrayToArray(arrayStrings, arrayObject) {
@@ -102,12 +145,12 @@ function filterArrayToArray(arrayStrings, arrayObject) {
 function filterArrayToString(value, arrayObject) {
     if (value == '') return arrayObject
     return arrayObject.filter(object => object.name.toLowerCase().includes(value.toLowerCase().trim()))
-}
+} */
 
 /* ---------- Final Filter ----------*/
-function filterAll(array) {
+/* function filterAll(array) {
     let cardsChecksFiltered = filterArrayToArray(selectChecked, array);
     let cardsFinalFiltered = filterArrayToString(inputText, cardsChecksFiltered);
     showCards(cardsFinalFiltered, 'containerHome');
-}
+} */
 

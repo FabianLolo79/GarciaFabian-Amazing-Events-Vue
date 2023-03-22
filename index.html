@@ -19,7 +19,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-warning bg-gradient">
+        <nav class="container-fluid navbar navbar-expand-lg bg-warning bg-gradient">
             <div class="container-fluid">
                 <a href="./index.html" class="navbar-brand">
                     <img class="logo" src="./assets/img/Logo_Amazing-Events.png" alt="Logo Amazing Events">
@@ -44,7 +44,7 @@
 
     <main>
 
-        <div id="carouselExampleInterval" class="carousel slide pt-1" data-bs-ride="carousel">
+        <div id="carouselExampleInterval" class="container-fluid carousel slide pt-1" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="2000">
                 <img src="https://i.postimg.cc/KYD0jMf2/comicon.jpg" class="d-block w-100" alt="music concert">
@@ -90,15 +90,17 @@
         <div id="app">
           <!-- {{ message }} -->
 
-              <form class="d-flex py-5 justify-content-center">
-                <input class="form-control shadow" v-on:keyup="filter" v-model="valueSearch" type="search" placeholder="Search" aria-label="Search" id="input-search">
+              <form class="container d-flex py-5 justify-content-center" id="form">
+                <div>
+                  <input class="form-control shadow" v-on:keyup="filter" v-model="valueSearch" type="search" placeholder="Search" aria-label="Search" id="input-search">
+                </div>
 
                   <template v-for= "category of checkedFilter">
                     <div class="col-auto my-2">
                         <div class="form-check category1 category" id="form-category"> 
-                            <label class="form-check-label">
+                            <label class="form-check-label d-flex">
+                                <input class="form-check-input mx-1 shadow inputCheck" type="checkbox" :value="category" v-on:change="filter" v-model="checked"> 
                                 {{category}} 
-                                <input class="form-check-input mx-1 shadow prueba" type="checkbox" :value="category" v-on:change="filter" v-model="checked"> 
                             </label>
                         </div> 
                     </div>
@@ -117,7 +119,7 @@
                           <p class="card-text text-center fw-bold">Date: {{ evento.date }}</p>
                           <div class="d-flex justify-content-between mt-5 mb-0">
                             <p class="fw-bold">Price: $ {{ evento.price }}</p>
-                            <a href="./details.html?_id=${element._id}" class="btn btn-outline-danger shadow">Details</a>
+                            <a v-bind:href="'./details.html?_id='+ evento._id" class="btn btn-outline-danger shadow">Details</a>
                           </div>
                         </div>
                       </div>
@@ -135,19 +137,19 @@
 
     </main>
 
-    <footer class="bg-warning bg-gradient d-flex justify-content-between align-items-center mt-3 pb-1">
+    <footer class="container-fluid bg-warning bg-gradient d-flex justify-content-between align-items-center mt-3 pb-1">
       <div class="d-flex">
-          <a class="nav nav-link" href="#">
+          <a class="nav nav-link" href="https://www.instagram.com/fabianlolo79/" target="_blank">
             <i class="bi bi-instagram text-dark fs-3 "></i>
           </a>
-          <a class="nav nav-link" href="#">
-            <i class="bi bi-facebook text-dark fs-3"></i>
+          <a class="nav nav-link" href="https://github.com/FabianLolo79" target="_blank">
+            <i class="bi bi-github text-dark fs-3"></i>
           </a> 
-          <a class="nav nav-link" href="#">
-            <i class="bi bi-whatsapp text-dark fs-3"></i>
+          <a class="nav nav-link" href="https://www.linkedin.com/in/fabianenriquegarcia/" target="_blank">
+            <i class="bi bi-linkedin text-dark fs-3"></i>
           </a>
       </div>
-      <div class="fs-6">Copyright Kalimocho 2023 &copy; by Fabián Enrique García \ Todos los derechos reservados</div>
+      <div class="fs-6">Copyright Kalimocho 2023 &copy; by Fabián Enrique García - Todos los derechos reservados</div>
       <div>
         <p class="h1 pe-5">Cohort 08TN</p>
       </div>

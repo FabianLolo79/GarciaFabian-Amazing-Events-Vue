@@ -19,7 +19,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-warning bg-gradient">
+        <nav class="container-fluid navbar navbar-expand-lg bg-warning bg-gradient">
             <div class="container-fluid">
                 <a class="navbar-brand" href="./index.html">
                     <img class="logo" src="./assets/img/Logo_Amazing-Events.png" alt="Logo Amazing Events">
@@ -43,7 +43,7 @@
     </header>
     <main>
 
-        <div id="carouselExampleInterval" class="carousel slide pt-1" data-bs-ride="carousel">
+        <div id="carouselExampleInterval" class="container-fluid carousel slide pt-1" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="2000">
                 <img src="https://i.postimg.cc/KYD0jMf2/comicon.jpg" class="d-block w-100" alt="music concert">
@@ -85,20 +85,57 @@
               <span class="visually-hidden">Next</span>
             </button>
         </div>
+        
+        <div id="app">
+          <!-- {{ message }} -->
 
-        <!-- Contenedor de los checkbox y search -->
-        <div class="d-flex justify-content-around conte" id="containerCheckHome">
-          <nav class="navbar ms-5">
-                  <form class="d-flex nav-search" role="search">
-                    <input class="form-control shadow ms-3" type="search" placeholder="Search" aria-label="Search" id="input-search">
-                  </form>
-          </nav>
-        </div>
+              <form class="container d-flex py-5 justify-content-center" id="form">
+                <div>
+                  <input class="form-control shadow" v-on:keyup="filter" v-model="valueSearch" type="search" placeholder="Search" aria-label="Search" id="input-search">
+                </div>
 
-        <!-- Contenedor de cards -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5 mx-3" id="containerHome">
-          
-        </div>
+                  <template v-for= "category of checkedFilter">
+                    <div class="col-auto my-2">
+                        <div class="form-check category1 category" id="form-category"> 
+                            <label class="form-check-label d-flex">
+                                <input class="form-check-input mx-1 shadow inputCheck" type="checkbox" :value="category" v-on:change="filter" v-model="checked"> 
+                                {{category}} 
+                            </label>
+                        </div> 
+                    </div>
+                  </template>
+
+              </form>
+
+              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5 mx-3">
+
+                  <template v-if="eventsFilter.length > 0" v-for="evento of eventsFilter">
+                      <div class="card m-4 shadow" style="width: 20rem;">
+                        <img :src="evento.image" class="card-img-top object-fit-cover mt-3 image" alt="">
+                        <div class="card-body">
+                          <h5 class="card-title text-center titulo">{{ evento.name }}</h5>
+                          <p class="card-text text-center">{{ evento.description }}</p>
+                          <p class="card-text text-center fw-bold">Date: {{ evento.date }}</p>
+                          <div class="d-flex justify-content-between mt-5 mb-0">
+                            <p class="fw-bold">Price: $ {{ evento.price }}</p>
+                            <a v-bind:href="'./details.html?_id='+ evento._id" class="btn btn-outline-danger shadow">Details</a>
+                          </div>
+                        </div>
+                      </div>
+                  </template>
+
+                  <template v-else>
+                    
+                      <p class="mx-auto text-center p-1 shadow">Search not found</p>
+                    
+                  </template>
+
+              </div>    
+                  
+      </div>
+
+
+
     </main>
 
     <footer class="bg-warning bg-gradient d-flex justify-content-between align-items-center mt-3 pb-1">
