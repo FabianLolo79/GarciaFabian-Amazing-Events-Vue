@@ -23,7 +23,7 @@ function details(array, idContainer) {
     const div = document.getElementById(idContainer)
     div.innerHTML = `<div class="row">
     <div class="col-md-6">
-        <img src="${array.image}" alt="..." class="mb-4 mb-md-0 pt-5" style="width: 600px; height: 500px;"/>
+        <img src="${array.image}" alt="..." class="img-fluid mb-4 mb-md-0 pt-5" style="width: 600px; height: 500px;"/>
     </div>
     <div class="col-md-6 d-flex flex-column justify-content-center pt-3">
         <h2 class="details_title">${array.name}</h2>

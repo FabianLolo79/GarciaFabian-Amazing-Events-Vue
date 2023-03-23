@@ -9,7 +9,8 @@ let urlApi = "https://mindhub-xj03.onrender.com/api/amazing";
                     checked: [],
                     valueSearch: '', // input en html
                     eventsFilter: [],
-                    checkedFilter: []   
+                    checkedFilter: [],
+                    eventUpcoming: [] 
 
                     //message: 'Hello Vue!'
 
@@ -23,7 +24,10 @@ let urlApi = "https://mindhub-xj03.onrender.com/api/amazing";
                     this.eventsFilter = data.events
                     //console.log(this.events)
                     this.checkedFilter = [...new Set(this.events.map(category => category.category)) ]
+                    /* encarando con el dia */
+                    this.eventUpcoming = events.filter(event => new Date(evento.date) > new Date(this.data.currentDate)) //creo
                 }).catch(error => console.log(error))
+
             },
             methods: {
                 filter() {

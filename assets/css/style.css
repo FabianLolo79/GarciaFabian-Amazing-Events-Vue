@@ -63,12 +63,12 @@ tr,th,td{
 }
 
 /* mediaquery */
-/* @media only screen and (mix-width: 320px){ 
+@media only screen and (mix-width: 320px){ 
     .carousel-inner{
         height: 5vh !important;
         overflow: hidden;
     }
-} */
+}
 
 @media only screen and (max-width: 385px ) {
     #form {
@@ -85,7 +85,7 @@ tr,th,td{
         margin-left: 10rem;
     }
     .carousel-inner{
-        height: 10vh !important;
+        height: 25vh !important;
         overflow: hidden;
     }
 }
